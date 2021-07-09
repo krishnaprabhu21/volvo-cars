@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import { StyleProvider, ThemePicker } from 'vcc-ui';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <StyleProvider>
+        <ThemePicker variant="light">
+          <App />
+        </ThemePicker>
+      </StyleProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

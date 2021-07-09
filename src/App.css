@@ -1,38 +1,225 @@
-.App {
+@import url("https://fonts.googleapis.com/css?family=Lobster");
+body {
+}
+
+.car_select {
+  margin-top: 30px;
+}
+
+#carousel {
+  position: absolute;
+  width: 70%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 25%;
+  bottom: 0;
+}
+.arrow {
+  /* position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: white;
   text-align: center;
+  font-size: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  color: #228291;
+  line-height: 30px;
+  margin-top: 85px;
+  z-index: 1000; */
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.arrow-left {
+  transform: rotate(180deg);
+  margin-right: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.item {
+  text-align: center;
   color: white;
+  font-size: 40px;
+  position: absolute;
+  transition: height 1s, width 1s, left 1s, margin-top 1s, line-height 1s,
+    background-color 1s;
+}
+.level-2 {
+  height: 150px;
+  width: 110px;
+  line-height: 150px;
+  left: 650px;
+  margin-top: 25px;
+}
+.level-1 {
+  height: 180px;
+  width: 130px;
+  line-height: 180px;
+  /* left: 500px; */
+  right: 150px;
+  margin-top: 25px;
+}
+.level0 {
+  height: 200px;
+  width: 150px;
+  margin-top: 25px;
+  line-height: 200px;
+  /* left: 330px; */
+  left: 53%;
+}
+.level1 {
+  height: 180px;
+  width: 130px;
+  line-height: 180px;
+  margin-top: 25px;
+  /* left: 180px; */
+  left: 27%;
+}
+.level2 {
+  height: 150px;
+  width: 110px;
+  line-height: 150px;
+  margin-top: 25px;
+  left: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* .level0,
+.level1,
+.level2,
+.level-1,
+.level-2 > img {
+  height: auto !important;
+} */
+
+.left-enter {
+  opacity: 0;
+  left: -60px;
+  height: 120px;
+  width: 90px;
+  line-height: 120px;
+  margin-top: 40px;
+}
+.left-enter.left-enter-active {
+  opacity: 1;
+  left: 50px;
+  height: 150px;
+  width: 110px;
+  line-height: 150px;
+  margin-top: 25px;
+  transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s,
+    line-height 1s;
+}
+.left-leave {
+  opacity: 1;
+  left: 650px;
+  height: 150px;
+  width: 110px;
+  line-height: 150px;
+  margin-top: 25px;
+}
+.left-leave.left-leave-active {
+  left: 780px;
+  opacity: 0;
+  height: 120px;
+  line-height: 120px;
+  margin-top: 40px;
+  width: 90px;
+  transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s,
+    line-height 1s;
+}
+.right-enter {
+  opacity: 0;
+  left: 760px;
+  height: 120px;
+  width: 90px;
+  line-height: 120px;
+  margin-top: 40px;
+}
+.right-enter.right-enter-active {
+  left: 650px;
+  opacity: 1;
+  height: 150px;
+  margin-top: 25px;
+  line-height: 150px;
+  width: 110px;
+  transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s,
+    line-height 1s;
+}
+.right-leave {
+  left: 50px;
+  height: 150px;
+  opacity: 1;
+  margin-top: 25px;
+  line-height: 150px;
+  width: 110px;
+}
+.right-leave.right-leave-active {
+  left: -60px;
+  opacity: 0;
+  height: 120px;
+  width: 90px;
+  line-height: 120px;
+  margin-top: 40px;
+  transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s,
+    line-height 1s;
+}
+.noselect {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.carousel__indicators_large_screen,
+.carousel__indicators_small_screen {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 50%;
+  position: absolute;
+}
+.carousel__indicators_large_screen li:nth-of-type(n + 2),
+.carousel__indicators_small_screen li:nth-of-type(n + 2) {
+  margin-left: 9px;
+}
+
+.carousel__indicators_large_screen {
+  right: 10px;
+}
+
+.carousel__indicators_small_screen {
+  bottom: -30px !important;
+}
+
+.carousel__indicator {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #111;
+  cursor: pointer;
+  opacity: 0.15;
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 1, 1);
+}
+.carousel__indicator:hover {
+  opacity: 0.5;
+}
+.carousel__indicator--active,
+.carousel__indicator--active:hover {
+  opacity: 0.75;
+}
+
+@media screen and (max-width: 750px) {
+  .carousel__indicators_large_screen {
+    display: none !important;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (min-width: 750px) {
+  .carousel__indicators_small_screen {
+    display: none !important;
   }
 }
